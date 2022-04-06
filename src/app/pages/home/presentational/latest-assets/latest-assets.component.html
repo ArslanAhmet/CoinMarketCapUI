@@ -1,0 +1,69 @@
+  <div class="d-flex justify-content-center flex-column">
+    <div class="spinner-container" *ngIf="sortedData.loading$ | async">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <mat-table
+      class="assets-table mat-elevation-z8"
+      [dataSource]="sortedData"
+      matSort
+      matSortActive="Id"
+      matSortDirection="desc"
+      matSortDisableClear
+    >
+
+      <ng-container class="asset-cell" matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+
+        <mat-cell *matCellDef="let asset">{{ asset.id }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="coinID">
+        <mat-header-cell *matHeaderCellDef>Coin ID</mat-header-cell>
+
+        <mat-cell *matCellDef="let asset">{{ asset.coinID }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="instantPrice">
+        <mat-header-cell *matHeaderCellDef>Instant Price</mat-header-cell>
+
+        <mat-cell *matCellDef="let asset">{{ asset.instantPrice }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="holdings">
+        <mat-header-cell *matHeaderCellDef>Holdings</mat-header-cell>
+
+        <mat-cell *matCellDef="let asset">{{ asset.holdings }}</mat-cell>
+      </ng-container>
+
+
+      <ng-container class="asset-cell" matColumnDef="averageBuyPrice">
+        <mat-header-cell *matHeaderCellDef>Average Buy Price</mat-header-cell>
+
+        <mat-cell *matCellDef="let asset">{{ asset.averageBuyPrice }}</mat-cell>
+      </ng-container>
+
+
+      <ng-container class="asset-cell" matColumnDef="h24Difference">
+        <mat-header-cell *matHeaderCellDef>24H Difference</mat-header-cell>
+
+        <mat-cell *matCellDef="let asset">{{ asset.h24Difference }}</mat-cell>
+      </ng-container>
+
+
+      <ng-container class="asset-cell" matColumnDef="profitLoss">
+        <mat-header-cell *matHeaderCellDef>Profit\Loss</mat-header-cell>
+
+        <mat-cell *matCellDef="let asset">{{ asset.profitLoss }}</mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+
+    <!-- <mat-paginator
+      [length]="totalCount"
+      [pageSize]="20"
+      [pageSizeOptions]="[10, 20, 50]"
+    ></mat-paginator> -->
+  </div>

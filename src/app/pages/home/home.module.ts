@@ -17,15 +17,18 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { StoreModule } from '@ngrx/store';
 import { personReducer } from './store/reducers/home-reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { HomeEffects } from './store/effects';
 import { AssetDialogComponent } from './presentational/asset-dialog/asset-dialog.component';
+import { LatestAssetsComponent } from './presentational/latest-assets/latest-assets.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, PersonDialogComponent,AssetDialogComponent],
+  declarations: [HomeComponent, PersonDialogComponent,AssetDialogComponent, LatestAssetsComponent],
   imports: [
     HomeRoutingModule,
     CommonModule,
@@ -36,6 +39,8 @@ import { AssetDialogComponent } from './presentational/asset-dialog/asset-dialog
     MatIconModule,
     MatDividerModule,
     MatNativeDateModule,
+    MatProgressSpinnerModule,
+    MatTableModule,
     FormsModule,
     MatListModule,
     MatMenuModule,

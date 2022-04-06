@@ -15,15 +15,12 @@ export class AssetsDataSource implements DataSource<AssetItem> {
   constructor(private assetsService: AssetDataService) {
   }
 
-  loadAssets(filter: string,
-    sortDirection: string,
-    pageIndex: number,
-    pageSize: number) {
+  loadAssets() {
 
     this.loadingSubject.next(true);
 
-    this.assetsService.getAllAssetsByParams(filter, sortDirection,
-      pageIndex, pageSize).pipe(
+    this.assetsService.getAllAssetsByParams('', 'Id',
+      1, 20).pipe(
         catchError(() => of([])),
         finalize(() => this.loadingSubject.next(false)),
       )

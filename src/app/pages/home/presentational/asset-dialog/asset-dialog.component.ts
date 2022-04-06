@@ -34,7 +34,7 @@ export class AssetDialogComponent implements OnInit {
     saveAsset(formValues:any) {
       let assetItem: AssetItem = {
         id: 0,
-        CoinID:1839,
+        CoinID:formValues.CoinID,
         Quantity: formValues.Quantity,
         PricePerCoin: formValues.PricePerCoin
       };

@@ -10,7 +10,7 @@ export class AssetDataService {
   private actionUrl: string;
 
   constructor(private http: HttpWrapperService, private httpClient: HttpClient) {
-    this.actionUrl = environment.server + environment.server + 'assets';
+    this.actionUrl = environment.server + 'assets';
   }
 
   getAllAssets() {
